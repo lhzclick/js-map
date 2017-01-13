@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*地图*/
+			#map{
+				width: 748px;
+				height: 616px;
+				background: url(img/bg.gif) no-repeat 0 0 ;
+				position: relative;
+			}
+			#map .bigMap{
+				width: 326px;
+				height: 474px;
+				position: absolute;
+				left: 266px;
+				top: 106px;
+				opacity: 0;
+				filter: alpha(opacity=0);
+			}
+			#map .Country{
+				position: absolute;
+				width: 140px;
+				height: 120px;
+				z-index: 2;
+				display: none;
+				_display:block;
+			}
+			
+			#map .Country1{
+				left: 63px;
+				top: 75px;
+			}
+			#map .Country2{
+				left: 89px;
+				top: 235px;
+			}
+			#map .Country3{
+				left: 212px;
+				top: 339px;
+			}
+			#map .Country4{
+				left: 588px;
+				top: 106px;
+			}
+			#map .Country5{
+				left: 619px;
+				top: 308px;
+			}
+			#map .Country .img{
+				width: 92px;
+				height: 92px;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			#map .Country .imgBtm{
+				position: absolute;
+				left: 0;
+				top: 96px;
+				z-index: 2;
+			}
+			#map .Country .btn{
+				width: 14px;
+				height: 14px;
+			}
+			
+			#map .Country .btn:hover{
+				width: 10px;
+				height: 10px;
+				margin: 2px;
+			}
+			#map .Country .line{
+				position: absolute;
+			}
+			#map .Country1 .line{
+				left: 94px;
+				top: 44px;
+			}
+			#map .Country2 .line{
+				left: 45px;
+				top: -36px;
+			}
+			#map .Country3 .line{
+				left: 45px;
+				top: -108px;
+			}
+			#map .Country4 .line{
+				left: -204px;
+				top: 45px;
+			}
+			#map .Country5 .line{
+				left: -164px;
+				top: -48px;
+			}
+			
+			/*弹出层*/
+			#map .mask{
+				width: 686px;
+				height: 326px;
+				background: #000;
+				position: absolute;
+				left: 32px;
+				top: 130px;
+				opacity: 0.5;
+				filter: alpha(opacity=50);
+				z-index: 5;
+				display: none;
+			}
+			#map .maskCont {
+				position: absolute;
+				width: 686px;
+				height: 326px;
+				left: 32px;
+				top: 130px;
+				z-index: 6;
+			}
+			#map .maskCont .bigWord{
+				position: absolute;
+				left: 266px;
+				top: 94px;
+			} 
+			#map .maskCont .word{
+				margin: 0;
+				position: absolute;
+				width: 360px;
+				height: 96px;
+				color: #fff;
+				font:16px/24px arial;
+				left: 266px;
+				top: 118px;
+			} 
+			#map .maskCont .bigBtn{
+				position: absolute;
+				right: 20px;
+				top: 18px;
+			}
+			#map .maskCont .bigBtn img{
+				width: 18px;
+				height: 18px;
+			}
+			#map .maskCont .bigBtn img:hover{
+				width: 14px;
+				height: 14px;
+				margin: 2px;
+			}
+			#map .maskCont{
+				display: none;
+			}
+			#map .maskCont .intro{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="map">
+			<!--地图上方-->
+			<div class="Country1 Country">
+				<img class="img" src="img/1.gif" alt="" />
+				<img class="line" src="img/line1.gif" alt="" />
+				<div class="imgBtm">
+					<img class="text" src="img/ico1.gif" alt="" />
+					<img class="btn btn1" src="img/btn1.png" alt="" />
+					<img class="btn btn2" src="img/btn2.png" alt="" />
+				</div>
+			</div>
+			<div class="Country2 Country">
+				<img class="img" src="img/2.gif" alt="" />
+				<img class="line" src="img/line2.gif" alt="" />
+				<div class="imgBtm">
+					<img class="text" src="img/ico2.gif" alt="" />
+					<img class="btn btn1" src="img/btn1.png" alt="" />
+					<img class="btn btn2" src="img/btn2.png" alt="" />
+				</div>
+			</div>
+			<div class="Country3 Country">
+				<img class="img" src="img/3.gif" alt="" />
+				<img class="line" src="img/line3.gif" alt="" />
+				<div class="imgBtm">
+					<img class="text" src="img/ico3.gif" alt="" />
+					<img class="btn btn1" src="img/btn1.png" alt="" />
+					<img class="btn btn2" src="img/btn2.png" alt="" />
+				</div>
+			</div>
+			<div class="Country4 Country">
+				<img class="img" src="img/4.gif" alt="" />
+				<img class="line" src="img/line4.gif" alt="" />
+				<div class="imgBtm">
+					<img class="text" src="img/ico4.gif" alt="" />
+					<img class="btn btn1" src="img/btn1.png" alt="" />
+					<img class="btn btn2" src="img/btn2.png" alt="" />
+				</div>
+			</div>
+			<div class="Country5 Country">
+				<img class="img" src="img/5.gif" alt="" />
+				<img class="line" src="img/line5.gif" alt="" />
+				<div class="imgBtm">
+					<img class="text" src="img/ico5.gif" alt="" />
+					<img class="btn btn1" src="img/btn1.png" alt="" />
+					<img class="btn btn2" src="img/btn2.png" alt="" />
+				</div>
+			</div>
+			
+			<!--弹出层-->
+			<div class="mask">
+			</div>
+			<div class="maskCont">
+					<div class="intro">
+						<a class="bigWord" href="#">
+							<img src="img/1.png" alt="" />
+						</a>
+						<p class="word">
+							El 7 de noviembre de 2008, CNPC firmó con Recope el acuerdo sobre la refinería de Moín, siendo el primer proyecto petrolero que CNPC desarrolla en América Central...
+						</p>
+					</div>
+					<div class="intro">
+						<a class="bigWord" href="#">
+							<img src="img/ico2.gif" alt="" />
+						</a>
+						<p class="word">
+							El 7 de noviembre de 2008, CNPC firmó con Recope el acuerdo sobre la refinería de Moín, siendo el primer proyecto petrolero que CNPC desarrolla en América Central...
+						</p>
+					</div>
+					<div class="intro">
+						<a class="bigWord" href="#">
+							<img src="img/ico3.gif" alt="" />
+						</a>
+						<p class="word">
+							El 7 de noviembre de 2008, CNPC firmó con Recope el acuerdo sobre la refinería de Moín, siendo el primer proyecto petrolero que CNPC desarrolla en América Central...
+						</p>
+					</div>
+					<div class="intro">
+						<a class="bigWord" href="#">
+							<img src="img/ico4.gif" alt="" />
+						</a>
+						<p class="word">
+							El 7 de noviembre de 2008, CNPC firmó con Recope el acuerdo sobre la refinería de Moín, siendo el primer proyecto petrolero que CNPC desarrolla en América Central...
+						</p>
+					</div>
+					<div class="intro">
+						<a class="bigWord" href="#">
+							<img src="img/ico5.gif" alt="" />
+						</a>
+						<p class="word">
+							El 7 de noviembre de 2008, CNPC firmó con Recope el acuerdo sobre la refinería de Moín, siendo el primer proyecto petrolero que CNPC desarrolla en América Central...
+						</p>
+					</div>
+				<div class="bigBtn">
+					<img src="img/btn1.png" alt="" />
+					<img class="btnClose" src="img/btn2.png" alt="" />
+				</div>
+			</div>
+			<img class="bigMap" src="img/map.gif" alt="" />
+		</div>
+	</body>
+	<script src="js/jquery-1.7.2.min.js"></script>
+	<script>
+		$(function () {
+			//初始化
+			$('#map .bigMap').animate({'opacity':'1'},500);
+			$('#map .bigMap').animate({'opacity':'.2'},500);
+			$('#map .bigMap').animate({'opacity':'.8'},500,function () {
+				$('#map .Country').show(500);
+			});
+			$('#map .bigMap').animate({'opacity':'1'},500);
+			//存储每个Country的初始left，top值
+			var data = {
+				Left:[],
+				Top:[]
+			}
+			$('#map .Country').each(function (a,b) {
+				data.Left.push(parseInt($('#map .Country').eq(a).css('left')));
+				data.Top.push(parseInt($('#map .Country').eq(a).css('top')));
+			})
+			
+			//点击每张小图的+按钮
+			$('#map .btn1').click(function () {
+				//文字，小按钮和线条隐藏
+				$(this).parent().hide(200);				
+				$(this).parent().prev().hide(200);
+				var index = $(this).parent().parent().index();	//当前索引值
+				$(this).parent().parent().css('z-index',10)		
+				$(this).parent().parent().animate({
+					left:76,
+					top:180
+				},500)
+				$(this).parent().prev().prev().animate({
+					width:186,
+					height:186
+				},500,function () {		
+					$('#map .mask').css('display','block')	//遮罩层显示
+					$('#map .maskCont').show(500);	//遮罩层上面的内容显示
+					$('#map .intro').hide().eq(index).show();
+				})
+				
+				_index= index;	 // 把当前的索引值存成全局变量
+			})
+			
+			//点击大图-按钮
+			$('#map .btnClose').click(function () {
+				$('#map .mask').hide();		//遮罩层隐藏
+				$('#map .line').eq(_index).show(200); // 对应的线条隐藏	
+				$('#map .imgBtm').eq(_index).show(200);	//对应图片文字和小按钮显示
+				$('#map .Country').eq(_index).css('z-index',2);	
+				$('#map .maskCont').hide();				//遮罩层上面的内容隐藏
+				$('#map .Country').eq(_index).animate({	//回到初始位置动画
+					left:data.Left[_index],
+					top:data.Top[_index]
+				},500)
+				$('#map .Country .img').eq(_index).animate({//图片变小动画	
+					width:92,
+					height:92
+				},500)
+			})
+		})
+	</script>
+</html>
